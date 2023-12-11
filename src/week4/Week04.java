@@ -22,10 +22,17 @@ public class Week04 {
 	public static void prob1() {
 
 	// first we need subtract the value of the first element from the value of the last
-		System.out.println(ages[ages.length - 1] - ages[0]);
+		int result = ages[ages.length - 1] - ages[0];
+
+        // Print the result to the console
+        System.out.println("Last element of first array minus first element is equal to: " + result);
+   
+        
 
 		//1.a -  both use index of array length -1 so are dynamic
-		System.out.println(ages2[ages2.length - 1] - ages2[0]);
+        int result2 = (ages2[ages2.length - 1] - ages2[0]);
+        // Print the result to the console
+        System.out.println("Last element of second array minus first element is equal to: " + result2);
 
 		// we need to average the ages but expect it will not return a whole number so
 		// need double data type vs int
@@ -49,7 +56,7 @@ public class Week04 {
 
 		double average = sum / ages.length;
 		// print average
-		System.out.println(average);
+		System.out.println("The average of the ages in the given array are: " + average);
 	}
 
 	//problem two
@@ -69,10 +76,10 @@ public class Week04 {
 
 		// this averages the length of the names in the array
 
-		double average = sum / names.size();
+		//double average = sum / names.size();
 
 		// print average of name length
-		System.out.println(average);
+		System.out.println("Average number of letters per name: " + average);
 
 		// Concatenate all the names together, separated by spaces
 		StringBuilder concatenatedNames = new StringBuilder();
@@ -96,13 +103,13 @@ public class Week04 {
 		// this loop iterates over the previously created array names and appends the length of each name to the ArrayList nameLengths
 				for (String name : names) {
 					nameLengths.add(name.length());
+					
+					System.out.println(nameLengths);	
 
 		//prob6
-					sum += name.length();
-					// Interchangeable with:
-					// sum = sum + name.length();
+					 sum = sum + name.length();
 				}
-				System.out.println(sum);
+				System.out.println("Sum of all characters in all names in array: " + sum);
 	}
 
 	//prob7
@@ -165,12 +172,12 @@ public class Week04 {
 	//prob13- if spoons are less than or equal to zero, return "Keep it simple stupid."	, otherwise return "Let's get creative!"
 	// super tired, this seemed a relevant method  for my brain-space tonight
 	public static String complexityAdvice(int spoons){
+		System.out.println("How should I approach this question? ");
 		if (spoons <=  0) {
 			return  "Keep it simple stupid.";
 		}
 		else {
 			return "Let's get creative!";
-
 		}
 	}
 
@@ -180,41 +187,46 @@ public class Week04 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		init();
-		prob1();
+	//	prob1();
 	//	prob2();
 	//	prob3 - How do you access the last element of any array?
 	//	prob4 - How do you access the first element of any array?)
 	//	prob5();
-		// Should print: "HelloHelloHello"
+		
+	// prob6- 	sum of letters in all names in array
+		
+		
+		//prop7-  Should print: "HelloHelloHello"
 	//	prob7("Hello",3);
 
 	//prob8 - this should print John Smith
-	//	System.out.println(prob8("John", "Smith"));
+	//	System.out.println("Problem 8- Full name: " + prob8("John", "Smith"));
 
 
 	//prob9	- method that takes an array of int and returns true if the sum of all the ints
-		//in the array is greater than 100.
-		//Should print true
-		//System.out.println(prob9(new int[] {77,22,55}));
-		//Should print false
-		//System.out.println(prob9(new int[] {33,22,11,5,4}));
+															//in the array is greater than 100.
+			//Should print true
+	//System.out.println("Sum greater than 100? " + prob9(new int[] {77,22,55}));
+			//Should print false
+	//System.out.println("Sum greater than 100? " + prob9(new int[] {33,22,11,5,4}));
 
 	//prob10 - 	method that takes an array of double and returns the average of all the elements in the array.
-		//System.out.println(prob10(new double[] {10, 20, 60}));
-	// should print 30
+	//	System.out.println("Average of all elements in the array; " + prob10(new double[] {11, 20, 60}));
+	// should print 30.3333...
 
 	//prob11- method that takes two arrays of double and returns true if the average in first array is greater than second
-		//System.out.println(prob11(new double[] {10, 20, 60}, new double[] {20, 40, 120}));
+	//System.out.println("Average of sum of first array greater than sum of second array? " + prob11(new double[] {10, 20, 60}, new double[] {20, 40, 120}));
 	//this  should return false
 
 	//prob12 - 	method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket
 	//and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
-		//System.out.println(willBuyDrink(true, 87));
+	//	System.out.println("Sam will buy a drink? " + willBuyDrink(true, 87));
 	//should return true
 
 
 	//prob13 - 	method of your own that solves a problem. In comments, write what the method does and why you created it.
 	// if spoons are less than or equal to zero, return "Keep it simple stupid."	, otherwise return "Let's get creative!"
+		
 	//	System.out.println(complexityAdvice(4));
 		//prints "Let's get creative!"
 	//	System.out.println(complexityAdvice(-12));

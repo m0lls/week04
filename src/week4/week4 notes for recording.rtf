@@ -1,0 +1,197 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Book Antiqua;}}
+{\colortbl ;\red255\green255\blue0;\red0\green77\blue187;\red0\green176\blue80;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\highlight1\f0\fs22\lang9 Seeing that I would be reusing some aspects, it seemed useful to create those outside my main method so I could refer to them later without having to duplicate them.\highlight0\par
+I did a fair amount of commenting while working through the assignment so I can use it as a reference later for other assignments, as well as narrating my recording as I walked through my work. \par
+After  completing the 13 problems and commenting my code for my later reference, I then went though and commented out each problem after 1 in my main method. I did this so I can run them in order, without instantly running all the subsequent problems in my recording.\par
+\par
+Coding Steps\par
+1. Create an array of int called ages that contains the following values: 3, 9, 23, 64, 2, 8, 28, 93.\par
+\cf2\f1 We need to create an array of int with the given values.\par
+\cf0\f0 a. Programmatically subtract the value of the first element in the array from the value in the last element of the array (i.e. do not use ages[7] in your code). Print the result to the console.  \par
+\cf2\f1 First we need to subtract the value of the first element from the value of the last in Array ages1. To do this, we use ages.length-1 and subtract ages from this. I could have additonally used\par
+\cf3 //get the index of the last element\cf2\par
+\tab\cf3 int lastIndex = ages.length - 1;\par
+\cf2 and inserted this before the code to get the result of the subtraction.  I would then want to use a different format than I did to calculate the value of lastIndex - the value of the first index in the array. \par
+\cf3 //subtract value of first element in array ages1 from value of last element in array ages1\cf2\par
+\tab\cf3 int difference = ages[lastIndex] - ages[0];\par
+\cf2 I would also then need a line to print the result (difference after subtraction):\par
+\cf0\f0\tab\cf3 System.out.println("Result: " + difference); \par
+\par
+\cf0 b. Create a new array of int called ages2 with 9 elements (ages2 will be longer than the ages array, and have more elements).  \par
+\cf2\f1 We need to create an array of int with 9 elements, vs ages1 which had 8 elements.\cf0\f0\par
+i. Make sure that there are 9 elements of type int in this new array.  \par
+\cf2\f1 I just copied the original array and added an additional element, as well as changed the first and last numbers in the array.\cf0\f0\par
+\par
+ii. Repeat the subtraction from Step 1.a. (Programmatically subtract the value of the first element in the new array ages2 from the last element of ages2). \par
+\cf2\f1 We need to perform the same function we did on ages1 on the Array ages2.\cf0\f0\par
+iii. Show that using the index values for the elements is dynamic (works for arrays of different lengths).\par
+\cf2\f1  First we need to find the index of the last element in the array dynamically\cf3\f0\par
+ int lastIndex = ages.length - 1;\line // which we then subtract the following from\line ages[0] \cf0\par
+c. Use a loop to iterate through the array and calculate the average age. Print the result to the console.\par
+\cf2\f1 I could have created an int lastIndex and assigned it the above and then subtracted, but I can also just do the calculation within the parameters for the print command, which seemed more streamlined to do.\par
+\cf3\tab // Get index of last element dynamically\par
+        int lastIndex = ages.length - 1;\par
+\par
+        // Subtract value of first element from value of last element\par
+        int result = ages[lastIndex] - ages[0];\par
+\par
+        // Print the result to the console\par
+        System.out.println("Result for array of length " + ages.length + ": " + result);\par
+\f0\par
+\cf2\f1 To calculate the average, we need to add all the values in the array together, and then divide by the number of elements in the array. I do not expect this to return a whole number, so it makes the most sense to use a double here so we can have a decimal number which will be the accurate average. Had I left this an int it would have truncated the average. ie 5/3would have returned an int of 1 vs 1.66...\par
+\cf3\f0 double sum = 0;\par
+\par
+\tab // this loop iterates through the array ages and sums the values of the array\par
+\tab\tab for (int age : ages) \{\par
+\par
+\tab // this adds the next age in the array to the running sum and continues to iterate through the array\par
+\tab\tab sum = sum + age;\par
+\tab //calculate average\par
+\tab\tab double average = sum / ages.length;\par
+\tab // print average\par
+\tab\tab System.out.println(average);\par
+\cf0\par
+2. Create an array of String called names that contains the following values: \ldblquote Sam\rdblquote , \ldblquote Tommy\rdblquote , \ldblquote Tim\rdblquote , \ldblquote Sally\rdblquote , \ldblquote Buck\rdblquote , \ldblquote Bob\rdblquote .\par
+\cf2\f1   First I wanted to initialize the ArrayList for the given names outside my main method so it could be reused later in following problems.\cf0\f0\par
+\tab\cf3 //\tab initialization for lab objects as they are used in methods for problems 2 and 5 it makes sense to define and initialize these once outside of defining the methods for each problem.\par
+\tab public static void init() \{\par
+\tab\tab names.add("Sam");\par
+\tab\tab names.add("Tommy");\par
+\tab\tab names.add("Tim");\par
+\tab\tab names.add("Sally");\par
+\tab\tab names.add("Buck");\par
+\tab\tab names.add("Bob");\par
+//for method prob2 I called the above array and printed it to verify it was correct.\par
+System.out.println(names);\cf0\par
+a. Use a loop to iterate through the array and calculate the average number of letters per name. Print the result to the console.\par
+\cf3 //iterate through array via loop to calculate average number of letters per name\par
+\tab\tab\par
+\tab\tab double sum = 0;\par
+\par
+// this loop iterates through the Array names and sums the values of the array\par
+\tab\tab for (String name : names) \{\par
+\par
+// this adds the length of the next name in the array \par
+\tab\tab\tab sum = sum + name.length();\par
+\tab\tab\}\par
+\tab\tab\par
+// this averages the length of the names in the array\par
+\tab\tab\par
+\tab\tab double average = sum / names.size();\par
+\tab\tab\par
+// print average of name length\par
+\tab\tab System.out.println(average);\par
+\cf0\tab\tab\par
+\par
+\par
+b. Use a loop to iterate through the array again and concatenate all the names together, separated by spaces, and print the result to the console.\par
+ \cf4 I initally missed this in doing my coding project but have since corrected and pushed the corrected code to GitHub.\cf0\par
+\cf3 // Concatenate all the names together, separated by spaces\par
+\tab StringBuilder concatenatedNames = new StringBuilder();\par
+\tab\tab for (String name : names) \{\par
+          \tab\tab   concatenatedNames.append(name).append(" ");\par
+        \}\par
+\par
+ // Remove trailing space after the last name\par
+ \tab String result = concatenatedNames.toString().trim();\par
+\par
+// Print the results of concatenating the array\par
+\tab System.out.println("Concatenated names: " + result);\cf0\par
+\par
+3. How do you access the last element of any array?\par
+\cf2 To access the last element in the array, you would use something like\par
+\cf3\f1\tab int lastIndex = myArray.length - 1;\line\tab int lastElement = numbers[lastIndex];\cf0\f0\par
+\par
+4. How do you access the first element of any array?\par
+\cf2 To access the first element in the array, you would use something like\par
+\cf3\f1\tab int firstIndex = myArray[0];\cf0\f0\par
+\par
+5. Create a new array of int called nameLengths. Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.\par
+\cf3\tab public static void prob5() \{\par
+\tab\tab int sum = 0;\par
+// this loop iterates over the previously created array names and appends the length of each name to the ArrayList nameLengths\par
+\tab\tab\tab\tab for (String name : names) \{\par
+\tab\tab\tab\tab\tab nameLengths.add(name.length());\cf0\par
+\par
+6. Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. Print the result to the console.\par
+\cf3 //prob6\par
+\tab\tab sum += name.length();\par
+// Interchangeable with:\par
+// sum = sum + name.length();\par
+\tab\tab\tab\tab\}\par
+\tab\tab System.out.println(sum);\cf0\par
+\par
+7. Write a method that takes a String, word, and an int, n, as arguments and returns the word concatenated to itself n number of times. (i.e. if I pass in \ldblquote Hello\rdblquote  and 3, I expect the method to return \ldblquote HelloHelloHello\rdblquote ).\par
+\cf3 //prob7\par
+// starting at 0, this loop will run iterations until i is not less than n, each loop will append the word into stringbuilder\par
+\tab public static void prob7(String word, int n) \{\par
+\tab\tab StringBuilder sb = new StringBuilder();\par
+\tab\tab for (int i =0; i<n ; i++) \{\par
+\tab\tab\tab sb.append(word);\par
+\par
+\tab\tab\}\par
+//when it finishes the loop the sting builder will hold n references of the word\par
+\tab\tab System.out.println(sb.toString());\par
+\tab\}\cf0\par
+\par
+8. Write a method that takes two Strings, firstName and lastName, and returns a full name (the full name should be the first and the last name as a String separated by a space).\par
+\cf3 //prob8\par
+\tab public static String prob8 (String firstName, String lastName)\{\par
+\tab\tab return firstName + " " + lastName;\par
+\tab\}\cf0\par
+9. Write a method that takes an array of int and returns true if the sum of all the ints in the array is greater than 100.\par
+\cf3 //prob9\par
+//for sum starting at 0, we add the first integer to create a new sum, and then follow through the array adding each integer\par
+// we need to return true if sum of intArray is greater than 100\par
+\par
+\tab public static boolean prob9(int[] intArray) \{\par
+\tab\tab int sum = 0;\par
+\par
+\tab\tab for (int i : intArray) \{\par
+\par
+\tab\tab\tab sum = sum + i;\par
+\tab\tab\}\par
+\par
+\tab\tab return sum > 100;\par
+\tab\}\cf0\par
+\par
+10. Write a method that takes an array of double and returns the average of all the elements in the array.\par
+\cf3 //prob10 - method that takes an array of double and returns the average of all the elements in the array.\par
+\par
+\tab public static double prob10(double[] doubleArray) \{\par
+\tab\tab double sum = 0;\par
+\tab\tab for (double i : doubleArray) \{\par
+\tab\tab\tab sum = sum + i;\par
+\tab\tab\}\par
+\tab\tab return sum /doubleArray.length;\par
+\tab\}\cf0\par
+11. Write a method that takes two arrays of double and returns true if the average of the elements in the first array is greater than the average of the elements in the second array.\par
+\cf3 //prob11- method that takes an array of double and true if the average if elements in doubleArray1 is greater than average in doubleArray2\par
+\tab public static boolean prob11(double[] doubleArray1, double[] doubleArray2)\{\par
+\tab\tab return prob10(doubleArray1) > prob10(doubleArray2);\par
+\tab\}\cf0\par
+12. Write a method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.\par
+\cf3 //prob12 - method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket\par
+\tab\tab //and returns true if it is hot outside and if moneyInPocket is greater than 10.50.\par
+\tab public static boolean willBuyDrink(boolean isHotOutside,double moneyInPocket) \{\par
+\tab\tab return isHotOutside && moneyInPocket > 10.50;\par
+\tab\}\cf0\par
+13. Create a method of your own that solves a problem. In comments, write what the method does and why you created it.\par
+\cf2 I created this problem to decide if I should try something creative here or keep it simple. "Spoons" is kind of a slang term to denote energy reserves available to complete tasks etc. Somewhat like spell slots in D&D, spoons can be recovered after a long rest. \cf0\par
+\cf3 //prob13- if spoons are less than or equal to zero, return "Keep it simple stupid."\tab , otherwise return "Let's get creative!"\par
+\tab // super tired, this seemed a relevant method  for my brain-space tonight\par
+\tab public static String complexityAdvice(int spoons)\{\par
+\tab\tab if (spoons <=  0) \{\par
+\tab\tab\tab return  "Keep it simple stupid.";\par
+\tab\tab\}\par
+\tab\tab else \{\par
+\tab\tab\tab return "Let's get creative!";\par
+\par
+\tab\tab\}\cf0\par
+\par
+I have a friend who is a programmer and is kind enough to tutor/ mentor me during this course. They suggested I write some unit tests so I can start by determining what needs done in my methods, and also prints the result so I can see if my method correctly performs the intended function.\par
+\par
+\par
+}
+ 
