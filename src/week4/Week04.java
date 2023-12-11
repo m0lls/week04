@@ -76,7 +76,7 @@ public class Week04 {
 
 		// this averages the length of the names in the array
 
-		//double average = sum / names.size();
+		double average = sum / names.size();
 
 		// print average of name length
 		System.out.println("Average number of letters per name: " + average);
@@ -196,14 +196,14 @@ public class Week04 {
 	// prob6- 	sum of letters in all names in array
 		
 		
-		//prop7-  Should print: "HelloHelloHello"
+		//prob7-  Should print: "HelloHelloHello"
 	//	prob7("Hello",3);
 
 	//prob8 - this should print John Smith
 	//	System.out.println("Problem 8- Full name: " + prob8("John", "Smith"));
 
 
-	//prob9	- method that takes an array of int and returns true if the sum of all the ints
+	//	prob9	- method that takes an array of int and returns true if the sum of all the ints
 															//in the array is greater than 100.
 			//Should print true
 	//System.out.println("Sum greater than 100? " + prob9(new int[] {77,22,55}));
@@ -220,7 +220,7 @@ public class Week04 {
 
 	//prob12 - 	method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket
 	//and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
-	//	System.out.println("Sam will buy a drink? " + willBuyDrink(true, 87));
+    //	System.out.println("Sam will buy a drink? " + willBuyDrink(true, 87));
 	//should return true
 
 
